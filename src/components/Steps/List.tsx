@@ -9,13 +9,19 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 import { DocumentsList } from "../Documents/List";
+enum complete{
+    Undone,
+    Active,
+    Done
+}
 
 interface Stage {
     serialNumber: number;
     title: String;
     startDate: string;
     finishDate: string;
-    complete: boolean;
+    docs: string[];
+    complete: complete;
 }
 
 interface StageListProps {
@@ -38,17 +44,16 @@ export const StepsList = (props: StageListProps) => {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">serialNumber</TableCell>
-                        <TableCell align="right">startDate&nbsp;(g)</TableCell>
-                        <TableCell align="right">finishDate&nbsp;(g)</TableCell>
-                        <TableCell align="right">complete&nbsp;(g)</TableCell>
+                        <TableCell><strong>Stages</strong></TableCell>
+                        <TableCell align="right"><strong>serialNumber</strong></TableCell>
+                        <TableCell align="right"><strong>startDate</strong></TableCell>
+                        <TableCell align="right"><strong>finishDate</strong></TableCell>
+                        <TableCell align="right"><strong>complete</strong></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {props.stages.map((row) => (
                         <React.Fragment>
-                            <DocumentsList />
                             <TableRow key={row.serialNumber}>
                                 <TableCell component="th" scope="row">
                                     {row.title}
@@ -58,6 +63,7 @@ export const StepsList = (props: StageListProps) => {
                                 <TableCell align="right">{row.finishDate}</TableCell>
                                 <TableCell align="right">{row.complete}</TableCell>
                             </TableRow>
+                            <DocumentsList {...row.docs} />
                         </React.Fragment>
                     ))}
                 </TableBody>
