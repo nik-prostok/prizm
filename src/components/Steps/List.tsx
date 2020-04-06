@@ -1,5 +1,5 @@
-import * as React from "react";
-import {makeStyles} from '@material-ui/core/styles';
+import * as React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-    return {name, calories, fat, carbs, protein};
+    return { name, calories, fat, carbs, protein };
 }
 
 const rows = [
@@ -20,6 +20,11 @@ const rows = [
     createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
+
+
+// const lastRow = rows.length
+// console.log(rows[lastRow - 1].name)
+
 export interface StepListProps {
 
 }
@@ -29,6 +34,7 @@ const useStyles = makeStyles(theme => ({
         minWidth: 650,
     },
 }));
+
 
 export const List = () => {
 
