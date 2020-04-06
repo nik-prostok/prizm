@@ -8,6 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+import {DocumentsList} from "../Documents/List";
+
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
     return {name, calories, fat, carbs, protein};
 }
@@ -20,17 +22,13 @@ const rows = [
     createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-export interface StepListProps {
-
-}
-
 const useStyles = makeStyles(theme => ({
     table: {
         minWidth: 650,
     },
 }));
 
-export const List = () => {
+export const StepsList = () => {
 
     const classes = useStyles();
 
@@ -48,15 +46,18 @@ export const List = () => {
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
-                        <TableRow key={row.name}>
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-                            <TableCell align="right">{row.calories}</TableCell>
-                            <TableCell align="right">{row.fat}</TableCell>
-                            <TableCell align="right">{row.carbs}</TableCell>
-                            <TableCell align="right">{row.protein}</TableCell>
-                        </TableRow>
+                        <React.Fragment>
+                            <DocumentsList/>
+                            <TableRow key={row.name}>
+                                <TableCell component="th" scope="row">
+                                    {row.name}
+                                </TableCell>
+                                <TableCell align="right">{row.calories}</TableCell>
+                                <TableCell align="right">{row.fat}</TableCell>
+                                <TableCell align="right">{row.carbs}</TableCell>
+                                <TableCell align="right">{row.protein}</TableCell>
+                            </TableRow>
+                        </React.Fragment>
                     ))}
                 </TableBody>
             </Table>

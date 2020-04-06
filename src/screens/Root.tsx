@@ -1,14 +1,12 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import ScreensStepList from './Steps/List';
+import UnitItem from './Unit/View';
 
 const RootRouter = () => (
     <BrowserRouter>
         <Switch>
-            <Route path="/steps/list" component={ScreensStepList}/>
-            {/*<Route path="/user/create" component={ScreensUserForm} />
-            <Route path="/user/:id" component={ScreensUserForm} />*/}
+            <Route path="/unit" component={UnitItem}/>
         </Switch>
     </BrowserRouter>
 );
