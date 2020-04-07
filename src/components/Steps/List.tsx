@@ -9,10 +9,18 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 import { DocumentsList } from "../Documents/List";
-enum complete{
+enum complete {
     Undone,
     Active,
     Done
+}
+export interface doc {
+    id: number;
+    link: string;
+}
+
+export interface docsList {
+    docs: doc[];
 }
 
 interface Stage {
@@ -20,7 +28,7 @@ interface Stage {
     title: String;
     startDate: string;
     finishDate: string;
-    docs: string[];
+    documents: docsList;
     complete: complete;
 }
 
@@ -55,15 +63,15 @@ export const StepsList = (props: StageListProps) => {
                     {props.stages.map((row) => (
                         <React.Fragment>
                             <TableRow key={row.serialNumber}>
-                                <TableCell component="th" scope="row">
-                                    {row.title}
+                                <TableCell  component="th" scope="row">
+                                <strong>{row.title}</strong>
+                                    <DocumentsList {...row.documents} />
                                 </TableCell>
                                 <TableCell align="right">{row.serialNumber}</TableCell>
                                 <TableCell align="right">{row.startDate}</TableCell>
                                 <TableCell align="right">{row.finishDate}</TableCell>
                                 <TableCell align="right">{row.complete}</TableCell>
                             </TableRow>
-                            <DocumentsList {...row.docs} />
                         </React.Fragment>
                     ))}
                 </TableBody>
