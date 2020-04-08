@@ -1,7 +1,6 @@
 import React from 'react';
 import { StepsList } from '../../components/Steps/List';
 import { InfoItem } from '../../components/Info/Item';
-import { Header } from '../../components/Header/Header'
 
 const ScreenUnit = () => {
     const unit =
