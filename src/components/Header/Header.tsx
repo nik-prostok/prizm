@@ -9,12 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-interface UnitInfo {
-    unitName: string;
-    unitNumber: number
-}
-
-export const Header = () => {
+export const Header = (props: string) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event: any) => {
         setAnchorEl(event.currentTarget);
@@ -41,18 +36,9 @@ export const Header = () => {
                         <MenuItem onClick={handleClose}>Main</MenuItem>
                         <MenuItem onClick={handleClose}><Link to="/units/list">Units</Link></MenuItem>
                     </Menu>
-                    <Grid
-                        container
-                        direction="column"
-                        justify="flex-start"
-                        alignItems="flex-start">
                         <Typography variant="h4">
-
+                            {props}
                         </Typography>
-                        <Typography variant="h6">
-                            Serial number:
-                        </Typography>
-                    </Grid>
                 </Toolbar>
             </AppBar>
         </React.Fragment>
