@@ -9,11 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 import { DocumentsList } from "../Documents/List";
-enum complete {
-    Undone,
-    Active,
-    Done
-}
+
 export interface doc {
     id: number;
     link: string;
@@ -29,7 +25,7 @@ interface Stage {
     startDate: string;
     finishDate: string;
     documents: docsList;
-    complete: complete;
+    complete: boolean;
 }
 
 interface StageListProps {
