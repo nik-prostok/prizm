@@ -41,21 +41,18 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-/*const lastTrue = (props: UnitsProps) => {
-    let positiveArr: Stage[] = [];
+const lastTrue = (props: Stage[]) => {
+    let positiveArr: boolean[] = [];
     let lastTrue: number;
-    props.units.map((row) => (
-        positiveArr = row.stages.filter(function (number) {
+        positiveArr = props.map(function (number) {
             return number.complete === true
         })
-    ))
     lastTrue = positiveArr.length - 1
     return (lastTrue)
-}*/
+    }
 
 export const UnitsList = (props: UnitsProps) => {
 
-    // const lastTrueStage = lastTrue(props);
     const classes = useStyles();
 
     return (
@@ -75,7 +72,7 @@ export const UnitsList = (props: UnitsProps) => {
                                     <strong>{row.unitInfo.unitName}</strong>
                                 </TableCell>
                                 <TableCell align="right">{row.unitInfo.unitNumber}</TableCell>
-                                {/*<TableCell align="right">{row.stages[lastTrueStage]}</TableCell>*/}
+                                <TableCell align="right">{row.stages[lastTrue(row.stages)].title}</TableCell>
                             </TableRow>
                     ))}
                 </TableBody>
