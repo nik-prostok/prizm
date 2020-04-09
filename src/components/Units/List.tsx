@@ -1,5 +1,6 @@
 import * as React from "react";
-import {makeStyles} from '@material-ui/core/styles';
+import {Link} from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -13,7 +14,7 @@ export interface doc {
     link: string;
 }
 
-interface Stage {
+export interface Stage {
     serialNumber: number;
     title: string;
     startDate: string;
@@ -21,17 +22,17 @@ interface Stage {
     documents: doc[];
     complete: boolean;
 }
-interface UnitInfo {
+export interface UnitInfo {
     unitName: string;
     unitNumber: number;
 }
 
-interface Unit {
+export interface Unit {
     unitInfo: UnitInfo;
     stages: Stage[];
 }
 
-interface UnitsProps {
+export interface UnitsProps {
     units: Unit[];
 }
 
@@ -44,12 +45,12 @@ const useStyles = makeStyles(theme => ({
 const lastTrue = (props: Stage[]) => {
     let positiveArr: boolean[] = [];
     let lastTrue: number;
-        positiveArr = props.map(function (number) {
-            return number.complete === true
-        })
+    positiveArr = props.map(function (number) {
+        return number.complete === true
+    })
     lastTrue = positiveArr.length - 1
     return (lastTrue)
-    }
+}
 
 export const UnitsList = (props: UnitsProps) => {
 
@@ -62,14 +63,14 @@ export const UnitsList = (props: UnitsProps) => {
                     <TableRow>
                         <TableCell><strong>Units</strong></TableCell>
                         <TableCell align="right"><strong>serialNumber</strong></TableCell>
-                        <TableCell align="right"><strong>stage</strong></TableCell>
+                        <TableCell align="right"><strong>Last complete stage</strong></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {props.units.map((row) => (
-                            <TableRow key={row.unitInfo.unitNumber}>
-                                <TableCell component="th" scope="row">
-                                    <strong>{row.unitInfo.unitName}</strong>
+                        <TableRow key={row.unitInfo.unitNumber}>
+                            <TableCell component="th" scope="row">
+                                <strong>{row.unitInfo.unitName}</strong>
                                 </TableCell>
                                 <TableCell align="right">{row.unitInfo.unitNumber}</TableCell>
                                 <TableCell align="right">{row.stages[lastTrue(row.stages)].title}</TableCell>
