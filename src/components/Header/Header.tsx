@@ -1,15 +1,18 @@
 import React from "react";
-import { Link } from 'react-router-dom'
-import { Typography } from "@material-ui/core";
+import {Link} from 'react-router-dom'
+import {Typography} from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-export const Header = (props: string) => {
+interface HeaderProps {
+    title: string;
+}
+
+export const Header = (props: HeaderProps) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event: any) => {
         setAnchorEl(event.currentTarget);
@@ -37,7 +40,7 @@ export const Header = (props: string) => {
                         <MenuItem onClick={handleClose}><Link to="/units/list">Units</Link></MenuItem>
                     </Menu>
                         <Typography variant="h4">
-                            {props}
+                            {props.title}
                         </Typography>
                 </Toolbar>
             </AppBar>

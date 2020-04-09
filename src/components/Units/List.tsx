@@ -1,5 +1,5 @@
 import * as React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -13,31 +13,25 @@ export interface doc {
     link: string;
 }
 
-export interface docsList {
-    docs: doc[];
-}
-
 interface Stage {
     serialNumber: number;
-    title: String;
+    title: string;
     startDate: string;
     finishDate: string;
-    documents: docsList;
+    documents: doc[];
     complete: boolean;
-}
-
-interface StageListProps {
-    stages: Stage[];
 }
 interface UnitInfo {
     unitName: string;
     unitNumber: number;
 }
+
 interface Unit {
     unitInfo: UnitInfo;
-    stageList: StageListProps;
+    stages: Stage[];
 }
-interface Units {
+
+interface UnitsProps {
     units: Unit[];
 }
 
@@ -47,21 +41,21 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const lastTrue = (props: Units) => {
+/*const lastTrue = (props: UnitsProps) => {
     let positiveArr: Stage[] = [];
     let lastTrue: number;
     props.units.map((row) => (
-        positiveArr = row.stageList.stages.filter(function (number) {
+        positiveArr = row.stages.filter(function (number) {
             return number.complete === true
         })
     ))
     lastTrue = positiveArr.length - 1
     return (lastTrue)
-}
+}*/
 
-export const UnitsList = (props: Units) => {
+export const UnitsList = (props: UnitsProps) => {
 
-    const lastTrueStage = lastTrue(props);
+    // const lastTrueStage = lastTrue(props);
     const classes = useStyles();
 
     return (
@@ -76,15 +70,13 @@ export const UnitsList = (props: Units) => {
                 </TableHead>
                 <TableBody>
                     {props.units.map((row) => (
-                        <React.Fragment>
                             <TableRow key={row.unitInfo.unitNumber}>
                                 <TableCell component="th" scope="row">
                                     <strong>{row.unitInfo.unitName}</strong>
                                 </TableCell>
                                 <TableCell align="right">{row.unitInfo.unitNumber}</TableCell>
-                                <TableCell align="right">{row.stageList.stages[lastTrueStage]}</TableCell>
+                                {/*<TableCell align="right">{row.stages[lastTrueStage]}</TableCell>*/}
                             </TableRow>
-                        </React.Fragment>
                     ))}
                 </TableBody>
             </Table>
