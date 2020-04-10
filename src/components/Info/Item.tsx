@@ -8,12 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-
-
-interface UnitInfo {
-  unitName: string;
-  unitNumber: number
-}
+import { UnitInfo } from '../../components/Units/List';
 
 export const InfoItem = (props: UnitInfo) => {
   const [anchorEl, setAnchorEl] = React.useState(null);

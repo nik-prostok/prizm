@@ -7,31 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Unit } from '../Units/List';
 
 import { DocumentsList } from "../Documents/List";
-
-export interface doc {
-    id: number;
-    link: string;
-}
-
-export interface docsList {
-    docs: doc[];
-}
-
-interface Stage {
-    serialNumber: number;
-    title: String;
-    startDate: string;
-    finishDate: string;
-    documents: docsList;
-    complete: boolean;
-}
-
-interface StageListProps {
-    stages: Stage[];
-}
-
 
 const useStyles = makeStyles(theme => ({
     table: {
@@ -39,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export const StepsList = (props: StageListProps) => {
+export const StepsList = (props: Unit) => {
 
     const classes = useStyles();
 
@@ -61,7 +39,7 @@ export const StepsList = (props: StageListProps) => {
                             <TableRow key={row.serialNumber}>
                                 <TableCell  component="th" scope="row">
                                 <strong>{row.title}</strong>
-                                    <DocumentsList {...row.documents} />
+                                    <DocumentsList {...row} />
                                 </TableCell>
                                 <TableCell align="right">{row.serialNumber}</TableCell>
                                 <TableCell align="right">{row.startDate}</TableCell>

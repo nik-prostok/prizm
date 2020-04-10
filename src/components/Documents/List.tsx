@@ -2,10 +2,10 @@ import * as React from "react";
 import { Typography } from "@material-ui/core";
 import DescriptionIcon from '@material-ui/icons/Description';
 import Grid from '@material-ui/core/Grid';
-import { docsList } from '../Steps/List'
+import { Stage } from '../Units/List'
 
-export const DocumentsList = (props: docsList) => {
-    if (Object.keys(props.docs).length !== 0) {
+export const DocumentsList = (props: Stage) => {
+    if (Object.keys(props.documents).length !== 0) {
         return (
             <Grid
                 container
@@ -13,7 +13,7 @@ export const DocumentsList = (props: docsList) => {
                 justify="flex-start"
                 alignItems="flex-start">
                 Enable files:
-                {props.docs.map((doc) => (
+                {props.documents.map((doc) => (
                     <React.Fragment>
                         <Grid key={doc.id}
                             container
