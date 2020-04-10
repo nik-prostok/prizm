@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { Stage } from '../Units/List'
 
 export const DocumentsList = (props: Stage) => {
-    if (Object.keys(props.documents).length !== 0) {
+    if (props.documents.length !== 0) {
         return (
             <Grid
                 container
