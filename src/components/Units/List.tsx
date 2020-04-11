@@ -67,10 +67,10 @@ export const UnitsList = (props: UnitsProps) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.units.map((row) => (
+                    {props.units.map((row,index) => (
                         <TableRow key={row.unitInfo.unitNumber}>
                             <TableCell component="th" scope="row">
-                                <strong>{row.unitInfo.unitName}</strong>
+                                <strong><Link to={"/unit/"+index}>{row.unitInfo.unitName}</Link></strong>
                                 </TableCell>
                                 <TableCell align="right">{row.unitInfo.unitNumber}</TableCell>
                                 <TableCell align="right">{row.stages[lastTrue(row.stages)].title}</TableCell>
