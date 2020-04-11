@@ -62,8 +62,8 @@ export const UnitsList = (props: UnitsProps) => {
                 <TableHead>
                     <TableRow>
                         <TableCell><strong>Units</strong></TableCell>
-                        <TableCell align="right"><strong>serialNumber</strong></TableCell>
-                        <TableCell align="right"><strong>Last complete stage</strong></TableCell>
+                        <TableCell align="right"><strong>Serial number</strong></TableCell>
+                        <TableCell align="right"><strong>Present stage</strong></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
