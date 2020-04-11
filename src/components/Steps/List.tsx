@@ -27,10 +27,10 @@ export const StepsList = (props: Unit) => {
                 <TableHead>
                     <TableRow>
                         <TableCell><strong>Stages</strong></TableCell>
-                        <TableCell align="right"><strong>serialNumber</strong></TableCell>
-                        <TableCell align="right"><strong>startDate</strong></TableCell>
-                        <TableCell align="right"><strong>finishDate</strong></TableCell>
-                        <TableCell align="right"><strong>complete</strong></TableCell>
+                        <TableCell align="right"><strong>Serial number</strong></TableCell>
+                        <TableCell align="right"><strong>Start date</strong></TableCell>
+                        <TableCell align="right"><strong>Finish date</strong></TableCell>
+                        <TableCell align="right"><strong>Complete</strong></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
