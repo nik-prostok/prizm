@@ -1,10 +1,18 @@
 import React from 'react';
-import { StepsList } from '../../components/Steps/List';
-import { InfoItem } from '../../components/Info/Item';
-import { Unit } from '../../components/Units/List';
+import {StepsList} from '../../components/Steps/List';
+import {InfoItem} from '../../components/Info/Item';
+import {RouteComponentProps} from "react-router";
 
-const plug = () => {
-    const unit ={unitInfo: {
+interface MatchParams {
+    unitNumber: string;
+}
+
+interface ScreenUnitProps extends RouteComponentProps<MatchParams> {
+
+}
+
+const plug = {
+    unitInfo: {
         unitName: 'HJK-76',
         unitNumber: 18263712
     },
@@ -27,15 +35,14 @@ const plug = () => {
         complete: false
     }]
 }
-return unit
-}
 
-const ScreenUnit = (props: Unit) => {
-props = plug();
+const ScreenUnit = (props: ScreenUnitProps) => {
+
     return (
         <React.Fragment>
-            <InfoItem {...props.unitInfo} />
-            <StepsList {...props} />
+            <p>{props.match.params.unitNumber}</p>
+            <InfoItem unitName={plug.unitInfo.unitName} unitNumber={plug.unitInfo.unitNumber}/>
+            <StepsList stages={plug.stages}/>
         </React.Fragment>
     )
 

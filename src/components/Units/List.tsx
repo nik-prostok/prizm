@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Link} from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -62,15 +62,16 @@ export const UnitsList = (props: UnitsProps) => {
                 <TableHead>
                     <TableRow>
                         <TableCell><strong>Units</strong></TableCell>
-                        <TableCell align="right"><strong>serialNumber</strong></TableCell>
-                        <TableCell align="right"><strong>Last complete stage</strong></TableCell>
+                        <TableCell align="right"><strong>Serial number</strong></TableCell>
+                        <TableCell align="right"><strong>Present stage</strong></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.units.map((row) => (
+                    {props.units.map((row,index) => (
                         <TableRow key={row.unitInfo.unitNumber}>
                             <TableCell component="th" scope="row">
-                                <strong>{row.unitInfo.unitName}</strong>
+                                <strong><Link
+                                    to={`/unit/${row.unitInfo.unitNumber}`}>{row.unitInfo.unitName}</Link></strong>
                                 </TableCell>
                                 <TableCell align="right">{row.unitInfo.unitNumber}</TableCell>
                                 <TableCell align="right">{row.stages[lastTrue(row.stages)].title}</TableCell>

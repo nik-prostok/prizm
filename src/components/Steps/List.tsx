@@ -1,5 +1,5 @@
 import * as React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,9 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Unit } from '../Units/List';
+import {Stage} from '../Units/List';
 
-import { DocumentsList } from "../Documents/List";
+import {DocumentsList} from "../Documents/List";
 
 const useStyles = makeStyles(theme => ({
     table: {
@@ -17,7 +17,11 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export const StepsList = (props: Unit) => {
+interface StepsListProps {
+    stages: Stage[];
+}
+
+export const StepsList = (props: StepsListProps) => {
 
     const classes = useStyles();
 
@@ -27,10 +31,10 @@ export const StepsList = (props: Unit) => {
                 <TableHead>
                     <TableRow>
                         <TableCell><strong>Stages</strong></TableCell>
-                        <TableCell align="right"><strong>serialNumber</strong></TableCell>
-                        <TableCell align="right"><strong>startDate</strong></TableCell>
-                        <TableCell align="right"><strong>finishDate</strong></TableCell>
-                        <TableCell align="right"><strong>complete</strong></TableCell>
+                        <TableCell align="right"><strong>Serial number</strong></TableCell>
+                        <TableCell align="right"><strong>Start date</strong></TableCell>
+                        <TableCell align="right"><strong>Finish date</strong></TableCell>
+                        <TableCell align="right"><strong>Complete</strong></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
