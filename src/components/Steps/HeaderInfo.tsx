@@ -12,7 +12,7 @@ interface HeaderProps {
     title: string;
 }
 
-export const Header = (props: HeaderProps) => {
+export const HeaderInfo = (props: HeaderProps) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event: any) => {
         setAnchorEl(event.currentTarget);

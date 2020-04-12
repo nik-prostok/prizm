@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import ScreenAllUnits from './Unit/List';
-import ScreenUnit from './Unit/View';
+import ScreenAllUnits from './Product/Product.List';
+import ScreenUnit from './Product/Product.View';
 
 
 const RootRouter = () => (

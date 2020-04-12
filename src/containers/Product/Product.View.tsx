@@ -1,6 +1,6 @@
 import React from 'react';
-import {StepsList} from '../../components/Steps/List';
-import {InfoItem} from '../../components/Info/Item';
+import {StepsList} from '../../components/Steps/Steps.List';
+import {ProductInfo} from '../../components/Product/Product.Info';
 import {RouteComponentProps} from "react-router";
 
 interface MatchParams {
@@ -36,15 +36,14 @@ const plug = {
     }]
 }
 
-const ScreenUnit = (props: ScreenUnitProps) => {
+const ProductView = (props: ScreenUnitProps) => {
 
     return (
         <React.Fragment>
-            <p>{props.match.params.unitNumber}</p>
-            <InfoItem unitName={plug.unitInfo.unitName} unitNumber={plug.unitInfo.unitNumber}/>
+            <ProductInfo unitName={plug.unitInfo.unitName} unitNumber={Number(props.match.params.unitNumber)}/>
             <StepsList stages={plug.stages}/>
         </React.Fragment>
     )
 
 };
-export default ScreenUnit
+export default ProductView;

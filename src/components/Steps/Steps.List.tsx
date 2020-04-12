@@ -7,9 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {Stage} from '../Units/List';
+import {Stage} from '../Product/Product.List';
 
-import {DocumentsList} from "../Documents/List";
+import {DocumentsList} from "../Documents/Documents.List";
 
 const useStyles = makeStyles(theme => ({
     table: {
@@ -39,7 +39,6 @@ export const StepsList = (props: StepsListProps) => {
                 </TableHead>
                 <TableBody>
                     {props.stages.map((row) => (
-                        <React.Fragment>
                             <TableRow key={row.serialNumber}>
                                 <TableCell  component="th" scope="row">
                                 <strong>{row.title}</strong>
@@ -50,7 +49,6 @@ export const StepsList = (props: StepsListProps) => {
                                 <TableCell align="right">{row.finishDate}</TableCell>
                                 <TableCell align="right">{row.complete}</TableCell>
                             </TableRow>
-                        </React.Fragment>
                     ))}
                 </TableBody>
             </Table>

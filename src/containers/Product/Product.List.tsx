@@ -1,9 +1,9 @@
 import React from 'react';
-import {UnitsList} from '../../components/Units/List';
-import {Header} from '../../components/Header/Header'
+import {UnitsList} from '../../components/Product/Product.List';
+import {HeaderInfo} from '../../components/Steps/HeaderInfo'
 
-const ScreenAllUnits = () => {
-    const title = "Units"
+const ProductList = () => {
+    const title = "Product"
     const units = [
         {
             unitInfo: {
@@ -66,10 +66,10 @@ const ScreenAllUnits = () => {
 
     return (
         <React.Fragment>
-            <Header title={title}/>
+            <HeaderInfo title={title}/>
             <UnitsList units={units}/>
         </React.Fragment>
     )
 
 };
-export default ScreenAllUnits
+export default ProductList;

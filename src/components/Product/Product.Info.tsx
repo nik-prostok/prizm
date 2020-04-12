@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom'
-import { Typography } from "@material-ui/core";
+import {Link} from 'react-router-dom'
+import {Typography} from "@material-ui/core";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
@@ -8,9 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { UnitInfo } from '../../components/Units/List';
+import {UnitInfo} from './Product.List';
 
-export const InfoItem = (props: UnitInfo) => {
+export const ProductInfo = (props: UnitInfo) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -20,7 +20,7 @@ export const InfoItem = (props: UnitInfo) => {
   };
 
   return (
-    <React.Fragment>
+      <React.Fragment>
       <AppBar color="primary" position="static">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleClick}>
