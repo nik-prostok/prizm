@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Link} from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -70,7 +70,8 @@ export const UnitsList = (props: UnitsProps) => {
                     {props.units.map((row,index) => (
                         <TableRow key={row.unitInfo.unitNumber}>
                             <TableCell component="th" scope="row">
-                                <strong><Link to={"/unit/"+index}>{row.unitInfo.unitName}</Link></strong>
+                                <strong><Link
+                                    to={`/unit/${row.unitInfo.unitNumber}`}>{row.unitInfo.unitName}</Link></strong>
                                 </TableCell>
                                 <TableCell align="right">{row.unitInfo.unitNumber}</TableCell>
                                 <TableCell align="right">{row.stages[lastTrue(row.stages)].title}</TableCell>

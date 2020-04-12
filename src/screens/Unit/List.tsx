@@ -8,7 +8,7 @@ const ScreenAllUnits = () => {
         {
             unitInfo: {
                 unitName: 'HJK-76',
-                unitNumber: 18263712
+                unitNumber: 111,
             },
             stages: [{
                 serialNumber: 1826361,
@@ -31,7 +31,7 @@ const ScreenAllUnits = () => {
         }, {
             unitInfo: {
                 unitName: 'TSJ-23',
-                unitNumber: 18253712
+                unitNumber: 222,
             },
             stages: [{
                 serialNumber: 1826361,
