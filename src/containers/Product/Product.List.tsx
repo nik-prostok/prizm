@@ -1,6 +1,7 @@
 import React from 'react';
 import {UnitsList} from '../../components/Product/Product.List';
 import {HeaderInfo} from '../../components/Steps/HeaderInfo'
+import AddUnit from '../../components/AddForms/AddUnit'
 
 const ProductList = () => {
     const title = "Product"
@@ -68,6 +69,7 @@ const ProductList = () => {
         <React.Fragment>
             <HeaderInfo title={title}/>
             <UnitsList units={units}/>
+            <AddUnit units={units}/>
         </React.Fragment>
     )
 
