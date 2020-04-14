@@ -71,7 +71,7 @@ export const UnitsList = (props: UnitsProps) => {
                         <TableRow key={row.unitInfo.unitNumber}>
                             <TableCell component="th" scope="row">
                                 <strong><Link
-                                    to={`/unit/${row.unitInfo.unitNumber}`}>{row.unitInfo.unitName}</Link></strong>
+                                    to={`/product/${row.unitInfo.unitNumber}`}>{row.unitInfo.unitName}</Link></strong>
                                 </TableCell>
                                 <TableCell align="right">{row.unitInfo.unitNumber}</TableCell>
                                 <TableCell align="right">{row.stages[lastTrue(row.stages)].title}</TableCell>

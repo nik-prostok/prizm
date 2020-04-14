@@ -37,7 +37,7 @@ export const HeaderInfo = (props: HeaderProps) => {
                         onClose={handleClose}
                     >
                         <MenuItem onClick={handleClose}>Main</MenuItem>
-                        <MenuItem onClick={handleClose}><Link to="/units/list">Units</Link></MenuItem>
+                        <MenuItem onClick={handleClose}><Link to="/products">Units</Link></MenuItem>
                     </Menu>
                         <Typography variant="h4">
                             {props.title}
