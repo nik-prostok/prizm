@@ -1,12 +1,22 @@
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
 import TextField from '@material-ui/core/TextField';
 import { Typography } from "@material-ui/core";
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { UnitsProps } from '../Product/Product.List'
 
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            '& .MuiTextField-root': {
+                margin: theme.spacing(2),
+                width: '25ch',
+            },
+        },
+    }),
+);
 
 type Anchor = 'bottom';
 
@@ -14,6 +24,8 @@ export default function AddUnit(props: UnitsProps) {
     const [state, setState] = React.useState({
         bottom: false,
     });
+
+    const classes = useStyles();
 
     const toggleDrawer = (anchor: Anchor, open: boolean) => (
         event: React.KeyboardEvent | React.MouseEvent,
@@ -34,7 +46,7 @@ export default function AddUnit(props: UnitsProps) {
                 <React.Fragment key={anchor}>
                     <Button variant="contained" color="primary" onClick={toggleDrawer(anchor, true)}>Add unit</Button>
                     <Drawer anchor={anchor} open={state[anchor]} onKeyDown={toggleDrawer(anchor, true)}>
-                        <List>
+                        <form className={classes.root} noValidate autoComplete="off">
                             <Grid
                                 container
                                 direction="row"
@@ -42,23 +54,20 @@ export default function AddUnit(props: UnitsProps) {
                                 alignItems="baseline"
                             >
                                 <Typography variant="h6">
-                                    Name:
-                                 </Typography>
+                                    <strong>Name:</strong>
+                                </Typography>
                                 <TextField
                                     id="name-textarea"
-                                    label="Name"
-                                    placeholder="Name"
+                                    rowsMax={4}
                                 />
                                 <Typography variant="h6">
-                                    Serial number:
+                                    <strong>Serial number:</strong>
                                 </Typography>
                                 <TextField
                                     id="number-textarea"
-                                    label="Serial number"
-                                    placeholder="Number"
                                 />
                             </Grid>
-                        </List>
+                        </form>
                         <Button variant="contained" color="primary" onClick={toggleDrawer('bottom', false)}> Add </Button>
                     </Drawer>
                 </React.Fragment>

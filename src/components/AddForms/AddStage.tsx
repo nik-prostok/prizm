@@ -1,17 +1,30 @@
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
 import TextField from '@material-ui/core/TextField';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography } from "@material-ui/core";
 import Grid from '@material-ui/core/Grid';
 
 type Anchor = 'bottom';
 
+const useStyles = makeStyles((theme: Theme) =>
+createStyles({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(2),
+      width: '25ch',
+    },
+  },
+}),
+);
+
 export default function AddStage() {
   const [state, setState] = React.useState({
     bottom: false,
   });
+
+  const classes = useStyles();
 
   const toggleDrawer = (anchor: Anchor, open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent,
@@ -33,7 +46,7 @@ export default function AddStage() {
         <React.Fragment key={anchor}>
           <Button variant="contained" color="primary" onClick={toggleDrawer(anchor, true)}>Add stage</Button>
           <Drawer anchor={anchor} open={state[anchor]} onKeyDown={toggleDrawer(anchor, true)}>
-            <List>
+            <form  className={classes.root} noValidate autoComplete="off">
               <Grid
                 container
                 direction="row"
@@ -41,39 +54,31 @@ export default function AddStage() {
                 alignItems="baseline"
               >
                 <Typography variant="h6">
-                  Name:
+                  <strong>Name:</strong>
           </Typography>
                 <TextField
                   id="name-textarea"
-                  label="Name"
-                  placeholder="Name"
                 />
                 <Typography variant="h6">
-                  Serial number:
+                <strong> Serial number:</strong>
           </Typography>
                 <TextField
                   id="number-textarea"
-                  label="Serial number"
-                  placeholder="Number"
                 />
                 <Typography variant="h6">
-                  Start date:
+                <strong> Start date:</strong>
           </Typography>
                 <TextField
                   id="stDate-textarea"
-                  label="Start date"
-                  placeholder="Date"
                 />
                 <Typography variant="h6">
-                  Finish date:
+                <strong> Finish date:</strong>
           </Typography>
                 <TextField
                   id="finDate-textarea"
-                  label="Finish date"
-                  placeholder="Date"
                 />
               </Grid>
-            </List>
+            </form>
             <Button variant="contained" color="primary" onClick={toggleDrawer('bottom', false)}> Add </Button>
           </Drawer>
         </React.Fragment>
