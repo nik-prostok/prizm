@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { UnitsProps } from '../Product/Product.List'
+import { ProductsProps } from '../Product/Product.List'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type Anchor = 'bottom';
 
-export default function AddUnit(props: UnitsProps) {
+export default function AddUnit(props: ProductsProps) {
     const [state, setState] = React.useState({
         bottom: false,
     });

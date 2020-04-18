@@ -5,7 +5,7 @@ import { RouteComponentProps } from "react-router";
 import AddStage from '../../components/AddForms/AddStage'
 
 interface MatchParams {
-    unitNumber: string;
+    productNumber: string;
 }
 
 interface ScreenUnitProps extends RouteComponentProps<MatchParams> {
@@ -13,27 +13,29 @@ interface ScreenUnitProps extends RouteComponentProps<MatchParams> {
 }
 
 const plug = {
-    unitInfo: {
-        unitName: 'HJK-76',
-        unitNumber: 18263712
-    },
+    title: 'KK-67',
+    id: 123,
+    productNumber: 254776,
+    status: 'STARTED',
     stages: [{
-        serialNumber: 1826361,
+        index: 1826361,
         title: 'Stage 1',
         startDate: '11.02.34',
         finishDate: '11.03.35',
-        documents: [{ id: 1342, link: 'Instruction.doc' }, { id: 1346, link: 'Components.xls' }],
-        complete: true
+        documents: [
+            { id: 1342, path: '/asdad/asd', title: 'Instruction.doc', user: { email: '', firstName: 'Андрей', id: 1, lastName: 'Заебеев', userName: '' } },
+            { id: 1346, path: '/asdad/asd', title: 'Components.xls', user: { email: '', firstName: 'Андрей', id: 2, lastName: 'Заебеев', userName: '' } }],
+        status: 'FINISHED'
     }, {
-        serialNumber: 1826371,
+        index: 1826371,
         title: 'Stage 2',
         startDate: '11.03.34',
         finishDate: '11.05.35',
         documents: [
-            { id: 1356, link: 'Instruction.doc' },
-            { id: 1389, link: 'Scheme.png' },
-            { id: 1251, link: 'Components.xls' }],
-        complete: false
+            { id: 1356,path:'/asdad/asd', title: 'Instruction.doc',user:{email:'',firstName:'Андрей',id:2,lastName:'Заебеев',userName:''} },
+            { id: 1389,path:'/asdad/asd', title: 'Scheme.png',user:{email:'',firstName:'Андрей',id:3,lastName:'Заебеев',userName:''} },
+            { id: 1251,path:'/asdad/asd', title: 'Components.xls',user:{email:'',firstName:'Андрей',id:4,lastName:'Заебеев',userName:''} }],
+        status: 'STARTED'
     }]
 }
 
@@ -41,10 +43,12 @@ const ProductView = (props: ScreenUnitProps) => {
 
     return (
         <React.Fragment>
-            <ProductInfo unitName={plug.unitInfo.unitName} unitNumber={Number(props.match.params.unitNumber)} />
+            <ProductInfo title={plug.title} productNumber={Number(props.match.params.productNumber)}/>
             <StepsList stages={plug.stages} />
             <AddStage />
         </React.Fragment>
+
+
     )
 
 };

@@ -8,9 +8,13 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import {UnitInfo} from './Product.List';
 
-export const ProductInfo = (props: UnitInfo) => {
+interface ProductInfo {
+  title: string;
+  productNumber: number;
+}
+
+export const ProductInfo = (props: ProductInfo) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -42,10 +46,10 @@ export const ProductInfo = (props: UnitInfo) => {
             justify="flex-start"
             alignItems="flex-start">
             <Typography variant="h4">
-              {props.unitName}
+              {props.title}
             </Typography>
             <Typography variant="h6">
-              Serial number:{props.unitNumber}
+              Serial number:{props.productNumber}
             </Typography>
           </Grid>
         </Toolbar>
