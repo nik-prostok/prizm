@@ -20,7 +20,7 @@ export const DocumentsList = (props: Stage) => {
                           justify="flex-start"
                           alignItems="center">
                         <DescriptionIcon fontSize="small"/>
-                        <Typography>{doc.link}</Typography>
+                        <Typography>{doc.title}</Typography>
                     </Grid>
                 ))}
             </Grid>

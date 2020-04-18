@@ -1,6 +1,6 @@
 import * as React from "react";
-import {Link} from 'react-router-dom'
-import {makeStyles} from '@material-ui/core/styles';
+import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,31 +9,40 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+export interface User {
+    email: string;
+    firstName: string;
+    id: number;
+    lastName: string,
+    userName: string;
+}
+
 export interface doc {
     id: number;
-    link: string;
+    path: string;
+    title: string;
+    user: User;
 }
 
 export interface Stage {
-    serialNumber: number;
+    index: number;
     title: string;
     startDate: string;
     finishDate: string;
     documents: doc[];
-    complete: boolean;
-}
-export interface UnitInfo {
-    unitName: string;
-    unitNumber: number;
+    status: string;
 }
 
-export interface Unit {
-    unitInfo: UnitInfo;
+export interface Product {
+    title: string;
+    id: number;
+    productNumber: number;
+    status: string;
     stages: Stage[];
 }
 
-export interface UnitsProps {
-    units: Unit[];
+export interface ProductsProps {
+    products: Product[];
 }
 
 const useStyles = makeStyles(theme => ({
@@ -42,17 +51,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const lastTrue = (props: Stage[]) => {
-    let positiveArr: boolean[] = [];
-    let lastTrue: number;
-    positiveArr = props.map(function (number) {
-        return number.complete === true
-    })
-    lastTrue = positiveArr.length - 1
-    return (lastTrue)
-}
-
-export const UnitsList = (props: UnitsProps) => {
+export const UnitsList = (props: ProductsProps) => {
 
     const classes = useStyles();
 
@@ -67,15 +66,15 @@ export const UnitsList = (props: UnitsProps) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.units.map((row,index) => (
-                        <TableRow key={row.unitInfo.unitNumber}>
+                    {props.products.map((row, index) => (
+                        <TableRow key={row.productNumber}>
                             <TableCell component="th" scope="row">
                                 <strong><Link
-                                    to={`/product/${row.unitInfo.unitNumber}`}>{row.unitInfo.unitName}</Link></strong>
-                                </TableCell>
-                                <TableCell align="right">{row.unitInfo.unitNumber}</TableCell>
-                                <TableCell align="right">{row.stages[lastTrue(row.stages)].title}</TableCell>
-                            </TableRow>
+                                    to={`/product/${row.productNumber}`}>{row.title}</Link></strong>
+                            </TableCell>
+                            <TableCell align="right">{row.productNumber}</TableCell>
+                            <TableCell align="right">{row.status}</TableCell>
+                        </TableRow>
                     ))}
                 </TableBody>
             </Table>
