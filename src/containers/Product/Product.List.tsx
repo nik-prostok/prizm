@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {UnitsList} from '../../components/Product/Product.List';
 import {HeaderInfo} from '../../components/Steps/HeaderInfo'
+import productsAPI from '../../services/API/products.api';
+import axios from 'axios';
 
-const ProductList = () => {
+
+const ProductList: React.FC = () => {
     const title = "Product"
     const units = [
         {
@@ -63,6 +66,10 @@ const ProductList = () => {
             }]
         }
     ]
+
+    useEffect(() => {
+        productsAPI.fetchProducts().then(response => {console.log(response)});
+    })
 
     return (
         <React.Fragment>
