@@ -1,16 +1,12 @@
-import React from 'react';
-import { UnitsList } from '../../components/Product/Product.List';
-import { HeaderInfo } from '../../components/Steps/HeaderInfo'
 import React, {useEffect} from 'react';
-import {UnitsList} from '../../components/Product/Product.List';
+import { UnitsList } from '../../components/Product/Product.List';
 import {HeaderInfo} from '../../components/Steps/HeaderInfo'
 import productsAPI from '../../services/API/products.api';
-import axios from 'axios';
 import AddUnit from '../../components/AddForms/AddUnit'
 
 const ProductList: React.FC = () => {
     const title = "Product"
-    const units = [
+    const products = [
         {
             title: 'KK-67',
             id: 123,

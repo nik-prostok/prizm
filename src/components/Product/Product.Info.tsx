@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom'
 import {Typography, Grid, Toolbar, AppBar, IconButton, Menu, MenuItem} from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
 
-import {UnitInfo} from './Product.List';
-
 interface ProductInfo {
   title: string;
   productNumber: number;
