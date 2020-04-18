@@ -70,7 +70,7 @@ export const UnitsList = (props: ProductsProps) => {
                         <TableRow key={row.productNumber}>
                             <TableCell component="th" scope="row">
                                 <strong><Link
-                                    to={`/unit/${row.productNumber}`}>{row.title}</Link></strong>
+                                    to={`/product/${row.productNumber}`}>{row.title}</Link></strong>
                             </TableCell>
                             <TableCell align="right">{row.productNumber}</TableCell>
                             <TableCell align="right">{row.status}</TableCell>

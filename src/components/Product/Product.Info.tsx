@@ -1,13 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom'
-import {Typography} from "@material-ui/core";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
+
+import {Typography, Grid, Toolbar, AppBar, IconButton, Menu, MenuItem} from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 
 interface ProductInfo {
   title: string;
@@ -38,7 +33,7 @@ export const ProductInfo = (props: ProductInfo) => {
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>Main</MenuItem>
-            <MenuItem onClick={handleClose}><Link to="/units/list">Units</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link to="/products">Units</Link></MenuItem>
           </Menu>
           <Grid
             container

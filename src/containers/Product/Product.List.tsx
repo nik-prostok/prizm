@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { UnitsList } from '../../components/Product/Product.List';
-import { HeaderInfo } from '../../components/Steps/HeaderInfo'
+import {HeaderInfo} from '../../components/Steps/HeaderInfo'
+import productsAPI from '../../services/API/products.api';
 import AddUnit from '../../components/AddForms/AddUnit'
 
-const ProductList = () => {
-    const title = "Products"
+const ProductList: React.FC = () => {
+    const title = "Product"
     const products = [
         {
             title: 'KK-67',
@@ -68,6 +69,10 @@ const ProductList = () => {
             }]
         }
     ]
+
+    useEffect(() => {
+        productsAPI.fetchProducts().then(response => {console.log(response)});
+    })
 
     return (
         <React.Fragment>
