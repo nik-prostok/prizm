@@ -15,7 +15,6 @@ import {
 } from "@material-ui/core";
 import Alert  from '@material-ui/lab/Alert';
 
-
 import AuthService from "../../services/API/auth.api";
 import {makeStyles} from "@material-ui/core/styles";
 
@@ -123,7 +122,7 @@ const LoginAuth: React.FC<LoginState> = (props: LoginProps) => {
         <React.Fragment>
             <TextField className={classes.textField} onChange={onChangeUsername} label="Login"
                        variant="outlined"/>
-            <TextField className={classes.textField} onChange={onChangePassword} label="Password"
+            <TextField className={classes.textField} type="password" onChange={onChangePassword} label="Password"
                        variant="outlined"/>
             <Button onClick={handleLogin} className={classes.textField} variant="outlined" color="primary">
                 LOGIN

@@ -46,7 +46,6 @@ class AuthApi {
                     } = response;
                     if (token) {
                         localStorage.setItem("token", JSON.stringify(token));
-                        // setTimeout(resolve, 5000)
                         resolve();
                     }
                 })
